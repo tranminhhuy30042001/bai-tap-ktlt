@@ -41,7 +41,9 @@ int Fibonacci(int n);
 void bai12();
 int bai12_dequy(int n,int f1,int f2);
 void bai12_2();
-
+void bai13();
+int tinhSoHangX(int n);
+int tinhSoHangY(int n);
 //----------------------
 //thân chương trình
 int main(){
@@ -87,6 +89,9 @@ int main(){
         break;
         case 13:
         bai12_2();
+        break;
+        case 14:
+        bai13();
         break;
         default:
             break;
@@ -316,4 +321,20 @@ void bai12_2(){
     if(n<=1) return;
     printf("\n%d",bai12_dequy(n,1,1));    
 
+}
+void bai13(){
+    int n;
+  
+    printf("\n nhap n: ");
+    scanf("%d",&n);
+    printf("\nX: %d\nY:%d",tinhSoHangX(n),tinhSoHangY(n));
+}
+int tinhSoHangX(int n){
+    if( n == 0) return 1;
+    return tinhSoHangX(n-1) + tinhSoHangY(n-1);
+
+}
+int tinhSoHangY(int n){
+    if( n == 0 ) return 0;
+    return 3*tinhSoHangX(n-1)+2*tinhSoHangY(n-1);
 }
