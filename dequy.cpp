@@ -44,6 +44,12 @@ void bai12_2();
 void bai13();
 int tinhSoHangX(int n);
 int tinhSoHangY(int n);
+void bai14();
+int tinhDayAn(int n);
+void bai15();
+int tinhYn(int n);
+void bai15_2();
+int tinhYn_2(int n);
 //----------------------
 //thân chương trình
 int main(){
@@ -93,6 +99,15 @@ int main(){
         case 14:
         bai13();
         break;
+        case 15:
+        bai14();
+        break;
+        case 16:
+        bai15();
+        break;
+        case 17:
+        bai15_2();
+        break;
         default:
             break;
         }
@@ -114,10 +129,10 @@ void menu(){
     printf("\n11.Bai 11");
     printf("\n12.Bai 12");
     printf("\n13.Bai 12 de quy");
-    printf("\n14.Bai 12 ");
-    printf("\n15.Bai 13");
-    printf("\n16.Bai 14");
-    printf("\n17.Bai 15");
+    printf("\n14.Bai 13 ");
+    printf("\n15.Bai 14");
+    printf("\n16.Bai 15");
+    printf("\n17.Bai 15_2");
     printf("\n18.Bai 16");
     printf("\n19.Bai 17");
     printf("\n20.Bai 18");
@@ -337,4 +352,43 @@ int tinhSoHangX(int n){
 int tinhSoHangY(int n){
     if( n == 0 ) return 0;
     return 3*tinhSoHangX(n-1)+2*tinhSoHangY(n-1);
+}
+void bai14(){
+    int n;
+    printf("\n nhap n: ");
+    scanf("%d",&n);
+    printf("%d ",tinhDayAn(n));
+}
+int tinhDayAn(int n){
+    if(n==1)return 1;
+    return n*tinhDayAn(n-1);
+}
+void bai15(){
+    int n;
+    printf("\n nhap n: ");
+    scanf("%d",&n);
+    printf("%d ",tinhYn(n));
+}
+int tinhYn(int n){
+    if(n<=3) return n;
+    return tinhYn(n-1)+2*tinhYn(n-2)+3*tinhYn(n-3);
+}
+void bai15_2(){
+ int n;
+    printf("\n nhap n: ");
+    scanf("%d",&n);
+    printf("%d ",tinhYn_2(n));
+}
+int tinhYn_2(int n){
+    if(n<=3) return n;
+    int a=1,b=2,c=3,kq;
+    while(n != 3)
+    {
+        kq = c + 2*b + 3 * a;
+        a = b;
+        b = c;
+        c = kq;
+        n--;
+    }
+    return kq;
 }
