@@ -50,6 +50,14 @@ void bai15();
 int tinhYn(int n);
 void bai15_2();
 int tinhYn_2(int n);
+void bai16();
+int tinhXN(int n);
+void bai16_2();
+int tinhXN_2(int n);
+void bai17();
+int hamB17(int n,int k);
+void bai18();
+int hamB18(int n);
 //----------------------
 //thân chương trình
 int main(){
@@ -108,6 +116,20 @@ int main(){
         case 17:
         bai15_2();
         break;
+        case 18:
+        bai16();
+        break;
+        case 19:
+        bai16_2();
+        break;
+        case 20:
+        bai17();
+        break;
+        case 21:
+        bai18();
+        break;
+        case 22:
+        break;
         default:
             break;
         }
@@ -134,8 +156,9 @@ void menu(){
     printf("\n16.Bai 15");
     printf("\n17.Bai 15_2");
     printf("\n18.Bai 16");
-    printf("\n19.Bai 17");
-    printf("\n20.Bai 18");
+    printf("\n19.Bai 16_2");
+    printf("\n20.Bai 17");
+    printf("\n21.Bai 18");
     printf("\nchon chuc nang: ");
 }
 
@@ -391,4 +414,57 @@ int tinhYn_2(int n){
         n--;
     }
     return kq;
+}
+void bai16(){
+    int n;
+    printf("\n nhap n: ");
+    scanf("%d",&n);
+    printf("\n%d",tinhXN(n));
+}
+int tinhXN(int n){
+    if(n<=2) return 1;
+    return tinhXN(n-1)+(n-1)*tinhXN(n-2);
+}
+void bai16_2(){
+    int n;
+    printf("\n nhap n: ");
+    scanf("%d",&n);
+    printf("\n%d",tinhXN_2(n));
+}
+int tinhXN_2(int n){
+    if(n <= 2) return 1;
+    int a=1,b=1,kq;
+    while (n!=2)
+    {
+        kq = b + (n-1) * a;
+        a = b;
+        b= kq;
+        n--;
+    }
+    return kq;
+}
+void bai17(){
+    int n;
+    printf("\n nhap n: ");
+    scanf("%d",&n);
+    printf("%d ",hamB17(n,1));
+}
+int hamB17(int n,int k){
+    if(n == 0)
+        return 1;
+    else if(n == 1)
+        return 2;
+    else
+        return hamB17(n-1,k) + k*hamB17(n-2,k+1);
+}
+void bai18(){
+    int n;
+    printf("\n nhap n: ");
+    scanf("%d",&n);
+    printf("%d ",hamB18(n));
+}
+int hamB18(int n){
+    if(n == 1) return 1;
+    else if(n == 2) return 4;
+    return n*n + hamB18(n-2) *hamB18(n-1) +1;
 }
