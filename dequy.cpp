@@ -39,7 +39,9 @@ int binarySearch(int array[], int x, int low, int high);
 void bai11();
 int Fibonacci(int n);
 void bai12();
-int bai12_dequy(int n);
+int bai12_dequy(int n,int f1,int f2);
+void bai12_2();
+
 //----------------------
 //thân chương trình
 int main(){
@@ -84,9 +86,7 @@ int main(){
         bai12();
         break;
         case 13:
-        printf("\n nhap n: ");
-        scanf("%d",&n);
-        bai12_dequy(n);
+        bai12_2();
         break;
         default:
             break;
@@ -210,7 +210,7 @@ int tinhBieuThucQuyNap(int n){
 }
 void bai7_1(){
     int n;
-    printf("nhap n: ");
+    printf("nhap n: "); 
     scanf("%d",&n);
     printf("ket qua: %d",tinhBieuThucQuyNap1(n));
 }
@@ -301,6 +301,19 @@ void bai12(){
     }
     printf("\n%d",f2);
 }
-int bai12_dequy(int n){
-   
+int bai12_dequy(int n,int f1,int f2)
+{
+    if(n <= f1+f2)
+        return f1;
+    return bai12_dequy(n,f1+f2,f1);
+}
+
+void bai12_2(){
+    int n;
+    int f1 =1,f2=1;
+    printf("\n nhap n: ");
+    scanf("%d",&n);
+    if(n<=1) return;
+    printf("\n%d",bai12_dequy(n,1,1));    
+
 }
